@@ -1,1 +1,1 @@
-# leetcode_java
+# leetcode_java_and_typescript
