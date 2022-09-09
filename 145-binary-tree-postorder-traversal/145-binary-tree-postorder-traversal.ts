@@ -12,18 +12,18 @@
  * }
  */
 
-function postorderTraversal(root) {
-    let ary = new Array();
-    ary = postOrder(root, ary);
+function postorderTraversal(root: TreeNode | null): number[] {
+    let ary : number[] = new Array();
+    postOrder(root, ary);
     return ary;
-}
-;
-function postOrder(root, ary) {
-    if (!root) {
-        return ary;
+};
+
+function postOrder(root:TreeNode | null, ary : number[]){
+    if(!root){
+        return;
     }
     postOrder(root.left, ary);
     postOrder(root.right, ary);
     ary.push(root.val);
-    return ary;
+    
 }
