@@ -1,24 +1,14 @@
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
 function hasCycle(head: ListNode | null): boolean {
-    let listAry: ListNode[] = new Array();
+    if(head === null) return false;
+    let slow: ListNode | null = head.next? head.next : null;
+    let fast: ListNode | null = slow ? head.next.next? head.next.next : null : null;
 
-    while(head){
-        for(let i of listAry){
-            if(i === head) return true;
+    while(slow&&fast){
+        if(slow === fast){
+            return true;
         }
-        listAry.push(head);
-        head = head.next
+        slow = slow.next? slow.next : null;
+        fast = fast.next ? fast.next.next? fast.next.next : null : null;
     }
     return false;
 };
